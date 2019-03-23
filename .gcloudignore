@@ -18,7 +18,7 @@ __pycache__/
 # Ignored by the build system
 /setup.cfg
 
-facebook-leloykun/
-facebook-leloykun.zip
-me.txt
-notme.txt
+misc/facebook-leloykun/
+misc/facebook-leloykun.zip
+misc/me.txt
+misc/notme.txt

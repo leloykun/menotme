@@ -13,9 +13,9 @@ print("HAS STARTED SAFELY")
 
 def load_model():
   global vectorizer, model
-  with open('vectorizer.pkl', 'rb') as f:
+  with open('misc/vectorizer.pkl', 'rb') as f:
     vectorizer = cPickle.load(f)
-  model = tfk.models.load_model('menotme_neuralnetwork.h5')
+  model = tfk.models.load_model('misc/menotme_neuralnetwork.h5')
 
 def predict(sentence):
     print(sentence)
