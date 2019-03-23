@@ -9,6 +9,8 @@ app.config['SECRET_KEY'] = 'DontTellAnyone'
 vectorizer = None
 model = None
 
+print("HAS STARTED SAFELY")
+
 def load_model():
   global vectorizer, model
   with open('vectorizer.pkl', 'rb') as f:
@@ -38,4 +40,4 @@ def query():
 if __name__ == '__main__':
   load_model()
   print(predict("HAHAHA"))
-  app.run(debug=False)
+  app.run(debug=True)
