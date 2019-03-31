@@ -51,7 +51,7 @@
     </div>
 
     <script
-      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
     <script
@@ -77,9 +77,9 @@
               $("#result_label").html("It's probably Not Franz")
               //alert("It's probably me")
             $("#modal_sentence_placeholder").html("Input sentence: " + data.sentence)
+            $("#result_modal").modal('show')
           }
         );
-        $("#result_modal").modal('show')
       }
     </script>
   </body>

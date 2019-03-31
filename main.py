@@ -9,8 +9,6 @@ app.config['SECRET_KEY'] = 'DontTellAnyone'
 vectorizer = None
 model = None
 
-print("HAS STARTED SAFELY")
-
 def load_model():
   global vectorizer, model
   with open('misc/vectorizer.pkl', 'rb') as f:
@@ -18,10 +16,11 @@ def load_model():
   model = tfk.models.load_model('misc/menotme_neuralnetwork.h5')
 
 def predict(sentence):
-    print(sentence)
+    load_model()
+
     sentence_t = vectorizer.transform([sentence])
     pred = model.predict(sentence_t)
-    print(pred)
+    print(sentence, pred)
     return pred[0][0]
 
 @app.route('/')
@@ -38,6 +37,4 @@ def query():
                    decision="true" if pred >= 0.5 else "false")
 
 if __name__ == '__main__':
-  load_model()
-  print(predict("HAHAHA"))
-  app.run(debug=True)
+    app.run()
