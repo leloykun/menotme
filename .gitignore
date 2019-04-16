@@ -1,3 +1,8 @@
 misc/facebook-leloykun*
 misc/me.txt
 misc/notme.txt
+misc/clean_data.py
+misc/logistic_classifier.pkl
+.gcloudignore
+app.yaml
+appengine_config.py

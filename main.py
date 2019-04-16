@@ -6,18 +6,11 @@ import tensorflow.keras as tfk
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'DontTellAnyone'
 
-vectorizer = None
-model = None
-
-def load_model():
-  global vectorizer, model
-  with open('misc/vectorizer.pkl', 'rb') as f:
+with open('misc/vectorizer.pkl', 'rb') as f:
     vectorizer = cPickle.load(f)
-  model = tfk.models.load_model('misc/menotme_neuralnetwork.h5')
+model = tfk.models.load_model('misc/menotme_neuralnetwork.h5')
 
 def predict(sentence):
-    load_model()
-
     sentence_t = vectorizer.transform([sentence])
     pred = model.predict(sentence_t)
     print(sentence, pred)
@@ -36,5 +29,4 @@ def query():
     return jsonify(sentence=sentence,
                    decision="true" if pred >= 0.5 else "false")
 
-if __name__ == '__main__':
-    app.run()
+app.run()
