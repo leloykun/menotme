@@ -6,11 +6,11 @@ import tensorflow.keras as tfk
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'DontTellAnyone'
 
-with open('model/vectorizer.pkl', 'rb') as f:
-    vectorizer = cPickle.load(f)
-model = tfk.models.load_model('model/menotme_neuralnetwork.h5')
-
 def predict(sentence):
+    with open('model/vectorizer.pkl', 'rb') as f:
+        vectorizer = cPickle.load(f)
+    model = tfk.models.load_model('model/menotme_neuralnetwork.h5')
+
     sentence_t = vectorizer.transform([sentence])
     pred = model.predict(sentence_t)
     print(sentence, pred)
